@@ -35,26 +35,13 @@ class TinkerTailor {
         // the eliminated kid after each round
         int numKidToAdd=0;
 
-        // the current round
-        int numRounds=0;
-
         while (kidsArray.size() > 0) {
-
-            // increase the round number
-            numRounds+=1;
 
             // setting the starting counter index for this round
             currentCounter=numKidToAdd;
 
-            // if there is only one kid in the kidsArray we add him to the outcome Array
-            if (kidsArray.size() == 1) {
-                outcome.add(kidsArray.get(0));
-                kidsArray.remove(0);
-                break;
-            }
-
             // determine the index of the kid to be removed
-            numKidToAdd=kidsArray.size() - k * numRounds > 0 ? k - 1 : (currentCounter + k - 1) % kidsArray.size();
+            numKidToAdd = (currentCounter + k - 1) % kidsArray.size();
 
             // adding the eliminated kid to the outcome ArrayList
             outcome.add(kidsArray.get(numKidToAdd));
